@@ -7,11 +7,11 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /app
 
-# System dependencies
+# System dependencies (use Ubuntu 22.04's built-in Python 3.10)
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    python3.12 python3.12-venv python3-pip git wget \
+    python3 python3-venv python3-dev python3-pip git wget \
     build-essential zlib1g-dev && \
-    ln -sf /usr/bin/python3.12 /usr/bin/python && \
+    ln -sf /usr/bin/python3 /usr/bin/python && \
     rm -rf /var/lib/apt/lists/*
 
 # Core dependencies
