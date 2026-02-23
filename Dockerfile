@@ -25,6 +25,9 @@ RUN pip install --no-cache-dir \
 # RUN pip install --no-cache-dir pyrosetta
 
 # Copy MCP server source
-COPY src/ src/
+COPY --chmod=755 src/ src/
+
+# Create writable directories for jobs/results
+RUN mkdir -p /app/jobs /app/results && chmod 777 /app /app/jobs /app/results
 
 CMD ["python", "src/server.py"]
